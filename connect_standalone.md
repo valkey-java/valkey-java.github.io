@@ -1,22 +1,11 @@
 ---
-title: Introduction
+title: Standalone
 layout: default
+parent: How to connect
 nav_order: 1
 ---
 
-Jackey is [Valkey](https://github.com/valkey-io/valkey)'s Java client, derived from [Jedis](https://github.com/redis/jedis) fork, dedicated to maintaining simplicity and high performance.
-
-# Getting started
-Add the following dependencies to your `pom.xml` file:
-```
-<dependency>
-    <groupId>io.jackey</groupId>
-    <artifactId>jackey</artifactId>
-    <version>5.2.0</version>
-</dependency>
-```
-
-## Connect to Valkey
+The following code shows how to use jackey to connect to valkey in standalone mode:
 ```java
 public class JackeyTest {
     // can be static or singleton, thread safety.
