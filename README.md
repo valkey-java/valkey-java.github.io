@@ -1,3 +1,3 @@
-# Jackey Docs
+# Valkey-java Docs
 
-Welcome to [jackey.io](https://jackey.io).
+Welcome to [valkey-java.io](https://valkey-java.io).

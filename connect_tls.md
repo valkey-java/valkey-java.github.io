@@ -5,7 +5,7 @@ parent: How to connect
 nav_order: 3
 ---
 
-The following code shows how to use jackey to enable SSL and connect to valkey:
+The following code shows how to use valkey-java to enable SSL and connect to valkey:
 # Standalone
 ```java
 import java.io.FileInputStream;
@@ -19,7 +19,7 @@ import javax.net.ssl.TrustManagerFactory;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
-public class JackeySSLTest {
+public class ValkeySSLTest {
     private static SSLSocketFactory createTrustStoreSSLSocketFactory(String jksFile) throws Exception {
         KeyStore trustStore = KeyStore.getInstance("jks");
         InputStream inputStream = null;
@@ -42,10 +42,10 @@ public class JackeySSLTest {
     public static void main(String[] args) throws Exception {
         // When you don't have a jks file, just set sslSocketFactory to null.
         final SSLSocketFactory sslSocketFactory = createTrustStoreSSLSocketFactory(<your_jks_file_path>);
-        io.jackey.JedisPool jedisPool = new io.jackey.JedisPool(new GenericObjectPoolConfig(), <host>,
+        io.valkey.JedisPool jedisPool = new io.valkey.JedisPool(new GenericObjectPoolConfig(), <host>,
             <port>, <timeout>, <password>, 0, true, sslSocketFactory, null, null);
 
-        try (io.jackey.Jedis jedis = pool.getResource()) {
+        try (io.valkey.Jedis jedis = pool.getResource()) {
             jedis.set("key", "value");
             System.out.println(jedis.get("key"));
         } catch (Exception e) {

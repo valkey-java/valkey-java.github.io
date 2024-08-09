@@ -5,19 +5,19 @@ parent: How to connect
 nav_order: 2
 ---
 
-The following code shows how to use jackey to connect to valkey in cluster mode:
+The following code shows how to use valkey-java to connect to valkey in cluster mode:
 ```java
 import java.util.HashSet;
 import java.util.Set;
-import io.jackey.HostAndPort;
+import io.valkey.HostAndPort;
 
-public class JackeyClusterTest {
+public class ValkeyClusterTest {
     private static final int DEFAULT_TIMEOUT = 2000;
     private static final int DEFAULT_REDIRECTIONS = 5;
-    private static io.jackey.JedisCluster jc; // be static or singleton, thread safety.
+    private static io.valkey.JedisCluster jc; // be static or singleton, thread safety.
 
     public static void main(String[] args) {
-        io.jackey.ConnectionPoolConfig config = new io.jackey.ConnectionPoolConfig();
+        io.valkey.ConnectionPoolConfig config = new io.valkey.ConnectionPoolConfig();
         // It is recommended that you set maxTotal = maxIdle = 2*minIdle for best performance
         // In cluster mode, please note that each business machine will contain up to maxTotal links,
         // and the total number of connections = maxTotal * number of machines
@@ -27,7 +27,7 @@ public class JackeyClusterTest {
 
         Set<HostAndPort> jedisClusterNode = new HashSet<HostAndPort>();
         jedisClusterNode.add(new HostAndPort(host, port));
-        jc = new io.jackey.JedisCluster(jedisClusterNode, DEFAULT_TIMEOUT, DEFAULT_TIMEOUT, DEFAULT_REDIRECTIONS,
+        jc = new io.valkey.JedisCluster(jedisClusterNode, DEFAULT_TIMEOUT, DEFAULT_TIMEOUT, DEFAULT_REDIRECTIONS,
             password, null, config);
 
         jc.set("key", "value"); // Note that there is no need to call jc.close() here, 

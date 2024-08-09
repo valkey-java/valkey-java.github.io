@@ -1,8 +1,8 @@
-title: Jackey
+title: Valkey-Java
 description: Java client for Valkey.
 theme: just-the-docs
 
-url: http://jackey.io/
+url: https://valkey-java.io/
 
 aux_links:
-  Jackey on Github: https://github.com/valkey-io/jackey
+  Github: https://github.com/valkey-io/valkey-java
