@@ -12,7 +12,7 @@ Add the following dependencies to your `pom.xml` file, you can find the latest v
 <dependency>
     <groupId>io.valkey</groupId>
     <artifactId>valkey-java</artifactId>
-    <version>5.3.0</version>
+    <version>Latest Version</version>
 </dependency>
 ```
 
